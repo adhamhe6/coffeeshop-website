@@ -5,6 +5,25 @@ from .forms import ProductFilterForm
 
 class ProductList(ListView):
     model = Product
+    template_name = 'products/product_list.html'
+    
+class ProductHotList(ListView):
+    model = Product
+    template_name = 'products/product_hot.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['product_hot'] = self.get_queryset().filter(flag='Hot Coffee')
+        return context
+    
+class ProductColdList(ListView):
+    model = Product
+    template_name = 'products/product_cold.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['product_cold'] = self.get_queryset().filter(flag='Cold Coffee')
+        return context
 
 class ProductDetail(DetailView):
     model = Product
