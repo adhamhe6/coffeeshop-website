@@ -1,0 +1,54 @@
+#header{
+    background: #5A020Cce;
+    color: #fff;
+}
+
+#head{
+    color: bisque !important;
+}
+
+.module h2, 
+.module caption, 
+.inline-group h2,
+.selector-chosen h2,
+div.breadcrumbs{
+    background: rgba(119, 13, 25, 0.808) !important;
+    color: #fff !important;
+}
+
+.button,
+input[type=submit],
+input[type=submit],
+.button,
+input[type=submit],
+input[type=submit],
+.button,
+input[type=submit],
+input[type=submit],
+.button.default,
+input[type=submit].default,
+.button.default,
+input[type=submit].default,
+.button.default,
+input[type=submit].default{
+    background: rgba(119, 13, 25, 0.808) !important;
+    color: #fff;
+}
+
+.button:active,
+input[type=submit]:active,
+input[type=submit]:active,
+.button:focus,
+input[type=submit]:focus,
+input[type=submit]:focus,
+.button:hover,
+input[type=submit]:hover,
+input[type=submit]:hover,
+.button.default:active,
+input[type=submit].default:active,
+.button.default:focus,
+input[type=submit].default:focus,
+.button.default:hover,
+input[type=submit].default:hover{
+    background: rgba(151, 31, 45, 0.808) !important;
+}
