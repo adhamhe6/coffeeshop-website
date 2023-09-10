@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %} | Products{% endblock%}
+{% block body %}
+    <div class="my-form container p-5 my-5 rounded border border-warning">
+        <form>
+            <h2 class="text-center">Products</h2>
+            <hr>
+
+            <section>
+                <div class="container-fluid">
+                  <div class="row p-5" >
+                    {% for product in products %}
+                    <div>
+                      <div class="card m-2" style="width: 18rem;">
+                        <div class="details-label-group">
+                          <label class="details-label new">{{product.flag}}</label>
+                        </div>
+                        <img src="{{product.image.url}}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">{{product}}</h5>
+                          <p class="card-text">{{product.desc}}.</p>
+                          <a href="{% url 'products:product-detail' product.id %}" class="btn btn-warning">Show Details</a>
+                        </div>
+                      </div>
+                    </div>
+                    {% endfor %}
+                  </div>
+                </div>
+            </section>
+        
+
+        </form>
+
+    </div>
+{% endblock body %}
