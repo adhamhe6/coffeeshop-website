@@ -85,9 +85,9 @@
                 Products
                 </a>
                 <div class="dropdown-menu animate slideIn" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Hot Coffee</a>
+                <a class="dropdown-item" href="{% url 'products:product-hot' %}">Hot Coffee</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Cold Coffee</a>
+                <a class="dropdown-item" href="{% url 'products:product-cold' %}">Cold Coffee</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{% url 'products:product-list' %}">All Products</a>
                 </div>
