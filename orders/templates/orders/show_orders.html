@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} | Orders{% endblock %}
+{% block body %}
+<div class="my-form container p-5 my-5 rounded border border-warning">
+    <h2 class="text-center">Orders</h2>
+    <hr>
+    {% if not request.user.is_authenticated and request.user.is_anonymous %}
+        <h5 class="alert alert-warning">
+            You must be 
+            <a href="{% url 'accounts:signin' %}" class="text-dark">Logged in</a>
+        </h5>
+    {% elif all_orders %}
+        {% if all_orders.count > 0 %}
+        <h5 class="alert alert-warning">
+        Num of Orders: <span class="my-num">{{all_orders.count}}</span>
+        </h5>
+        <hr>
+        <table id="cart_table" class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Order Num</th>
+                <th scope="col">Date & Time</th>
+                <th scope="col">Items Count</th>
+                <th scope="col">Total</th>
+                <th scope="col">State</th>
+              </tr>
+            </thead>
+            <tbody>
+        {% endif %}
+        {% for order in all_orders %}
+            <tr>
+                <td>{{order.id}}</td>
+                <td>{{order.order_date}}</td>
+                <td>{{order.items_count}}</td>
+                <td>{{order.total}}$</td>
+                <td>
+                    {% if order.is_finished == True %}
+                        <span class="my-num">Completed</span>
+                    {% else %}
+                        <span class="my-num">Inprogress</span>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        {% if all_orders.count > 0 %}
+            </tbody>
+        </table>
+        {% endif %}
+    {% else %}
+        <h4 class="alert alert-warning">
+            No Orders Here,
+            <a href="{% url 'products:product-list' %}" class="text-dark">All Products</a>
+        </h4>
+    {% endif %}
+</div>
+{% endblock %}
